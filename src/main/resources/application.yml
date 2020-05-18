@@ -1,0 +1,35 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springbucks?useSSL=true&useUnicode=true&charset=utf8&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: test
+    password: 12345678
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    database: mysql
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 5
+        max-idle: 5
+  cache:
+    type: redis
+    cache-names: coffee
+    redis:
+      time-to-live: 5000
+      cache-null-values: false
+
